@@ -58,7 +58,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="birth" destination="Nmu-6J-SQc" id="NHU-JM-F3h"/>
+                                    <outlet property="birthday" destination="Nmu-6J-SQc" id="yHP-wS-m8b"/>
                                     <outlet property="name" destination="F1d-L4-6xr" id="QSa-Zc-Jrz"/>
                                 </connections>
                             </tableViewCell>
@@ -69,7 +69,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="wdM-JY-Hb7"/>
-                    <navigationItem key="navigationItem" id="NJu-1O-EY2"/>
+                    <navigationItem key="navigationItem" title="Employees" id="NJu-1O-EY2"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="uig-1X-uTq">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>

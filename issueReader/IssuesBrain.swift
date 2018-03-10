@@ -13,6 +13,7 @@ class IssuesBrain {
     
     enum errors: Error {
         case fileNotFound
+        case ValidationError(String)
     }
     
     let dateFormatter = DateFormatter()
@@ -32,36 +33,50 @@ class IssuesBrain {
         guard let stream = InputStream(fileAtPath: csvPath) else {
             throw errors.fileNotFound
         }
+        self.clear()
+        let reader = try CSVReader(stream: stream)
         self.delegate?.calculationInitialized()
         DispatchQueue.main.async {
-            self.parseCSV(stream)
+            self.parse(csvReader: reader)
             self.delegate?.calculationCompleted()
         }
     }
     
-    private func parseCSV(_ stream: InputStream) {
+    private func clear() {
         self.employees = []
-        do {
-            let csv = try CSVReader(stream: stream)
-            csv.next()
-            while let row = csv.next() {
-                guard let date = dateFormatter.date(from: row[3]) else {
-                    continue
-                }
-                guard let issues = Int(row[2]) else {
-                    continue
-                }
-                let employee = Employee(
-                    firstName: row[0],
-                    lastName: row[1],
-                    birthday: date,
-                    issue: issues
-                )
-                self.employees.append(employee)
+    }
+    
+    private func validate(row: [String]) throws -> (Date, Int) {
+        if row.count != 4 {
+            throw errors.ValidationError("malformed data")
+        }
+        guard let date = dateFormatter.date(from: row[3]) else {
+            throw errors.ValidationError("failed to parse date")
+        }
+        guard let issues = Int(row[2]) else {
+            throw errors.ValidationError("failed to parse number of issues")
+        }
+        return (date, issues)
+    }
+    
+    private func parse(csvReader: CSVReader) {
+        csvReader.next()//Skip header
+        while let row = csvReader.next() {
+            var birthday: Date
+            var issues: Int
+            do {
+                (birthday, issues) = try validate(row: row)
+            } catch let exception {
+                self.delegate?.calculationError("Row \(csvReader.currentRow): \(exception.localizedDescription)")
+                continue//Skip this row.
             }
-        } catch let exception {
-            print(exception)
-            self.delegate?.calculationError("Failed to parse CSV file")
+            let employee = Employee(
+                firstName: row[0],
+                lastName: row[1],
+                birthday: birthday,
+                issue: issues
+            )
+            self.employees.append(employee)
         }
     }
     
