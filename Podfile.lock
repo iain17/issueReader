@@ -1,0 +1,15 @@
+PODS:
+  - CSV.swift (2.1.0)
+  - TDBadgedCell (5.3.0)
+
+DEPENDENCIES:
+  - CSV.swift (~> 2.1)
+  - TDBadgedCell (~> 5.3)
+
+SPEC CHECKSUMS:
+  CSV.swift: a24fb11c17875523783fe963592762ff163ef8ea
+  TDBadgedCell: 338008c35507b6d7cbe4a0b8180436ca4dc5c92b
+
+PODFILE CHECKSUM: cbaf5e9801ca428667fcedc96d657a199fcaaebc
+
+COCOAPODS: 1.4.0
