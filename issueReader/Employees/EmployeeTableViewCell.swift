@@ -23,7 +23,7 @@ class EmployeeTableViewCell: TDBadgedCell {
         didSet {
             if let value = employee {
                 self.name.text = "\(value.firstName) \(value.lastName)"
-                self.badgeString = String(describing: value.issue)
+                self.badgeString = String(describing: value.numIssues)
                 self.birthday.text = self.dateFormatter.string(from: value.birthday)
             }
         }

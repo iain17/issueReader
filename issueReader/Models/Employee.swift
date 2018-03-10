@@ -12,5 +12,5 @@ struct Employee {
     var firstName: String
     var lastName: String
     var birthday: Date
-    var issue: Int
+    var numIssues: Int
 }

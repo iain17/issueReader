@@ -53,19 +53,19 @@ class IssuesBrain {
         guard let date = dateFormatter.date(from: row[3]) else {
             throw errors.ValidationError("failed to parse date")
         }
-        guard let issues = Int(row[2]) else {
+        guard let numIssues = Int(row[2]) else {
             throw errors.ValidationError("failed to parse number of issues")
         }
-        return (date, issues)
+        return (date, numIssues)
     }
     
     private func parse(csvReader: CSVReader) {
         csvReader.next()//Skip header
         while let row = csvReader.next() {
             var birthday: Date
-            var issues: Int
+            var numIssues: Int
             do {
-                (birthday, issues) = try validate(row: row)
+                (birthday, numIssues) = try validate(row: row)
             } catch let exception {
                 self.delegate?.calculationError("Row \(csvReader.currentRow): \(exception.localizedDescription)")
                 continue//Skip this row.
@@ -74,7 +74,7 @@ class IssuesBrain {
                 firstName: row[0],
                 lastName: row[1],
                 birthday: birthday,
-                issue: issues
+                numIssues: numIssues
             )
             self.employees.append(employee)
         }
