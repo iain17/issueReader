@@ -1,12 +1,16 @@
 language: objective-c
-xcode_workspace: issueReader.xcworkspace
-xcode_scheme: issueReaderTests
 osx_image: xcode9.2
-#cache: cocoapods
-rvm: 2.3
-podfile: Podfile
-before_script:
-  - gem install bundler # if bundler is not installed already
-  - bundle install
-  - bundle exec pod repo update
-  - bundle exec pod install
+
+branches:
+  only:
+    - develop
+    - master
+env:
+  - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
+before_install:
+  - rvm install ruby-2.2.2
+  - gem install cocoapods
+  - gem install xcpretty -N
+script:
+  - set -o pipefail
+  - xcodebuild -workspace issueReader.xcworkspace -scheme issueReader -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
