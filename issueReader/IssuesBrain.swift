@@ -34,10 +34,13 @@ class IssuesBrain {
             throw errors.fileNotFound
         }
         self.clear()
-        let reader = try CSVReader(stream: stream)
+        run(csvReader: try CSVReader(stream: stream))
+    }
+    
+    func run(csvReader: CSVReader) {
         self.delegate?.calculationInitialized()
-        DispatchQueue.main.async {
-            self.parse(csvReader: reader)
+        DispatchQueue.global(qos: .background).async {
+            self.parse(csvReader: csvReader)
             self.delegate?.calculationCompleted()
         }
     }
@@ -59,7 +62,7 @@ class IssuesBrain {
         return (date, numIssues)
     }
     
-    private func parse(csvReader: CSVReader) {
+    internal func parse(csvReader: CSVReader) {
         csvReader.next()//Skip header
         while let row = csvReader.next() {
             var birthday: Date
@@ -67,7 +70,7 @@ class IssuesBrain {
             do {
                 (birthday, numIssues) = try validate(row: row)
             } catch let exception {
-                self.delegate?.calculationError("Row \(csvReader.currentRow): \(exception.localizedDescription)")
+                self.delegate?.calculationError("Parse error: \(exception.localizedDescription)")
                 continue//Skip this row.
             }
             let employee = Employee(

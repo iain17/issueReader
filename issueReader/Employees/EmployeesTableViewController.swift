@@ -45,7 +45,7 @@ class EmployeesTableViewController: UITableViewController, IssuesBrainDelegate {
     
     //Delegate function that informs the viewController that the calculation was completed. Stops the refreshControl and reloads the tableView.
     func calculationCompleted() {
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.main.async {
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         }

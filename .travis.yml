@@ -1,0 +1,12 @@
+language: objective-c
+xcode_workspace: issueReader.xcworkspace
+xcode_scheme: issueReaderTests
+osx_image: xcode9.2
+#cache: cocoapods
+rvm: 2.3
+podfile: Podfile
+before_script:
+  - gem install bundler # if bundler is not installed already
+  - bundle install
+  - bundle exec pod repo update
+  - bundle exec pod install
