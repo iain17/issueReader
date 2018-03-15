@@ -10,7 +10,7 @@ env:
 before_install:
   - rvm install ruby-2.2.2
   - gem install cocoapods
-  - gem install xcpretty -N
+  - pod repo update
 script:
   - set -o pipefail
   - xcodebuild -workspace issueReader.xcworkspace -scheme issueReader -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
