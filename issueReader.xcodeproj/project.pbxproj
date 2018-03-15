@@ -15,10 +15,10 @@
 		27116A612051D6A1009F85F4 /* issueReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27116A602051D6A1009F85F4 /* issueReaderUITests.swift */; };
 		272B9EE420529B3500ACC072 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272B9EE320529B3500ACC072 /* Employee.swift */; };
 		272B9EE720529BF100ACC072 /* IssuesBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272B9EE620529BF100ACC072 /* IssuesBrain.swift */; };
-		272B9EE92052C25700ACC072 /* issues.csv in Resources */ = {isa = PBXBuildFile; fileRef = 272B9EE82052C25700ACC072 /* issues.csv */; };
 		272B9EEE2052C75100ACC072 /* IssuesBrainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272B9EED2052C75100ACC072 /* IssuesBrainDelegate.swift */; };
 		274EF89F2051F750004362B5 /* EmployeesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF89E2051F750004362B5 /* EmployeesTableViewController.swift */; };
 		274EF8A12051F824004362B5 /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274EF8A02051F824004362B5 /* EmployeeTableViewCell.swift */; };
+		27F4A777205A9B5F00D096B0 /* issues.csv in Resources */ = {isa = PBXBuildFile; fileRef = 27F4A776205A9B5F00D096B0 /* issues.csv */; };
 		46809F7049AB8D40577940C1 /* Pods_issueReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F371DF37ED6CA623DA894EC /* Pods_issueReader.framework */; };
 		67FBA786CFDA88B51019D2C5 /* Pods_issueReaderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCDC27E5C7DAC3F1D4F4F1E /* Pods_issueReaderUITests.framework */; };
 		7611D6945B39DC53FB2D4867 /* Pods_issueReaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3C0EBB95F544DBFDFCDFD1 /* Pods_issueReaderTests.framework */; };
@@ -57,10 +57,10 @@
 		27116A622051D6A1009F85F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		272B9EE320529B3500ACC072 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		272B9EE620529BF100ACC072 /* IssuesBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesBrain.swift; sourceTree = "<group>"; };
-		272B9EE82052C25700ACC072 /* issues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = issues.csv; path = "../../../../../Library/Group Containers/3L68KQB4HG.group.com.readdle.smartemail/cache/messagesData/7/26555/assignment 2/issues.csv"; sourceTree = "<group>"; };
 		272B9EED2052C75100ACC072 /* IssuesBrainDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesBrainDelegate.swift; sourceTree = "<group>"; };
 		274EF89E2051F750004362B5 /* EmployeesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableViewController.swift; sourceTree = "<group>"; };
 		274EF8A02051F824004362B5 /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		27F4A776205A9B5F00D096B0 /* issues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = issues.csv; path = "issueReader/Supporting files/issues.csv"; sourceTree = SOURCE_ROOT; };
 		3410CAB1977B562DB02BB466 /* Pods-issueReaderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issueReaderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-issueReaderUITests/Pods-issueReaderUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F3C0EBB95F544DBFDFCDFD1 /* Pods_issueReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_issueReaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6721C149082841E8C63E2A59 /* Pods-issueReaderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issueReaderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-issueReaderUITests/Pods-issueReaderUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		27116A6F2051DFD9009F85F4 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				272B9EE82052C25700ACC072 /* issues.csv */,
+				27F4A776205A9B5F00D096B0 /* issues.csv */,
 				27116A402051D6A1009F85F4 /* AppDelegate.swift */,
 				27116A472051D6A1009F85F4 /* Assets.xcassets */,
 			);
@@ -320,7 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				272B9EE92052C25700ACC072 /* issues.csv in Resources */,
+				27F4A777205A9B5F00D096B0 /* issues.csv in Resources */,
 				27116A4B2051D6A1009F85F4 /* LaunchScreen.storyboard in Resources */,
 				27116A482051D6A1009F85F4 /* Assets.xcassets in Resources */,
 				27116A462051D6A1009F85F4 /* Main.storyboard in Resources */,
